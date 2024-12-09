@@ -26,7 +26,8 @@ public class ChessBoard {
         board[0][4] = new Queen(false);
 
 
-        //adds the black pawns
+        //adds the black pieces
+        //pawns
         for (int column = 0; column <= 7; column++){
             board[6][column] = new Pawn(true);
         }
@@ -43,12 +44,14 @@ public class ChessBoard {
         board[7][5] = new Bishop(true);
 
         //adds King and Queen
-        board[7][4] = new King(true);
-        board[7][3] = new Queen(true);
+        board[7][3] = new King(true);
+        board[7][4] = new Queen(true);
     }
 
 
     public void display(){
+        char[] side ={'a','b'};
+
         for (int row=7; row >=0; row--){
             for (int column=0; column <= 7; column++){
                 if (board[row][column] != null) {
@@ -59,5 +62,7 @@ public class ChessBoard {
             }
             System.out.println();
         }
+
+        System.out.println("1 2 3 4 5 6 7 8");
     }
 }
