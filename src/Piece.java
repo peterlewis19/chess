@@ -14,4 +14,8 @@ public class Piece {
             return Character.toString(symbol).toLowerCase();
         }
     }
+
+    public boolean isValidMove(){
+        return false;
+    }
 }

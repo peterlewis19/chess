@@ -4,5 +4,7 @@ public class Main {
 
         ChessBoard game = new ChessBoard();
         game.display();
+        boolean result = game.move();
+        System.out.println(result);
     }
 }
