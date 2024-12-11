@@ -15,7 +15,8 @@ public class Piece {
         }
     }
 
-    public boolean isValidMove(){
+    public boolean isValidMove(int startRow, int startCol, int endRow, int endCol) {
         return false;
+        //return false;
     }
 }
