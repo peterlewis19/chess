@@ -3,7 +3,6 @@ public class King extends Piece{
 
     public King(boolean isBlack) {
         super(isBlack, 'k');
-
     }
 
     public boolean isValidMove(int startRow, int startCol, int endRow, int endCol) {

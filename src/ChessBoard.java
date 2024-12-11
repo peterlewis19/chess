@@ -86,8 +86,7 @@ public class ChessBoard {
         int endRow = coordToRow(end);
         int endCol = coordToCol(end);
 
-        System.out.println(board[startCol][startRow]);
-        boolean isValid = board[startCol][startRow].isValidMove(startRow, startCol, endRow, endCol);
+        boolean isValid = board[startRow][startCol].isValidMove(startRow, startCol, endRow, endCol);
 
         return isValid;
     }
