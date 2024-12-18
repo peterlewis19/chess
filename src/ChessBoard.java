@@ -75,7 +75,7 @@ public class ChessBoard {
     }
 
     // asks the player for their move
-    public boolean move(){
+    public void move(){
         System.out.println("Give the start coord: ");
         String start = getPosition();
         int startRow = coordToRow(start);
@@ -87,9 +87,58 @@ public class ChessBoard {
         int endCol = coordToCol(end);
 
         boolean isValid = board[startRow][startCol].isValidMove(startRow, startCol, endRow, endCol);
+        boolean noCollision = true;
 
-        return isValid;
+        if (isValid){
+            //works for pawns, knights, kings (NOT castles, bishops, queens)
+            if (board[endRow][endCol].getColour() == board[startRow][startCol].getColour()){
+                noCollision = false;
+            } else if (board[startRow][startCol].getSymbol() == 'r'){ // case for rooks
+
+                //vertical move
+                if (Math.abs(startCol-endCol) == 0){
+                    if (startRow > endRow) {
+                        for (int i = startRow; i > endRow; i--) {
+                            if (board[i][startCol] != null) {
+                                noCollision = false;
+                            }
+                        }
+                    } else{
+                        for (int i = startRow; i < endRow; i++) {
+                            if (board[i][startCol] != null) {
+                                noCollision = false;
+                            }
+                        }
+                    }
+                } else{ // horizontal move
+                    if (startCol > endCol) {
+                        for (int i = startRow; i > endRow; i--) {
+                            if (board[startRow][i] != null) {
+                                noCollision = false;
+                            }
+                        }
+                    } else{
+                        for (int i = startRow; i < endRow; i++) {
+                            if (board[startRow][i] != null) {
+                                noCollision = false;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        if (isValid && noCollision){
+            //makes the move
+            board[endRow][endCol] = board[startRow][startCol];
+            board[startRow][startCol] = null;
+        } else{
+            System.out.println("not a valid move make a different one");
+        }
+
+        //return isValid;
     }
+
 
     private int coordToRow(String coord){
         return (int)(coord.charAt(1))-49;

@@ -19,7 +19,15 @@ public class Piece {
         return false;
     }
 
-    public boolean isitBlack(){
+    /*public boolean capture(int startRow, int startCol, int endRow, int endCol){
+
+    }*/
+
+    public boolean getColour(){
         return isBlack;
+    }
+
+    public char getSymbol(){
+        return symbol;
     }
 }

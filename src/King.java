@@ -7,12 +7,15 @@ public class King extends Piece{
 
     public boolean isValidMove(int startRow, int startCol, int endRow, int endCol) {
         boolean seemsOK = false;
+
+        //INITIAL CHECKS FOR MOVES
         if ((Math.abs(startRow - endRow) <= 1) && (Math.abs(startCol - endCol)) <= 1) {
             seemsOK = true;
         }
         if ((startRow == endRow) && (startCol == endCol)) {
             seemsOK = false;
         }
+
         return seemsOK;
     }
 }

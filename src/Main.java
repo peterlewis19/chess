@@ -4,7 +4,10 @@ public class Main {
 
         ChessBoard game = new ChessBoard();
         game.display();
-        boolean result = game.move();
-        System.out.println(result);
+        for (int i=0; i< 10; i++) {
+            game.move();
+            game.display();
+        }
+        //System.out.println(result);
     }
 }
